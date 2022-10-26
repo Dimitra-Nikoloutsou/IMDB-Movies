@@ -13,7 +13,7 @@ The dataset is about the Top 1000 Movies and TV shows by IMDB Rating.
 <h2>Data Cleaning</h2>
 
 Data Cleaning was done into Excel Sheets.<br>Steps:
-<br>1)Data divided into columns.<br>2)Filter data to check format type and eliminate unnecessary data. For the analysis were taken into account only the movies that the gross was not null.<br>3)Power Query was used to divide genre into rows.
+<br>1)Data divided into columns.<br>2)Filter data to check format type and eliminate unnecessary data. For the analysis were taken into account only the movies that the gross was not null.<br>3)Another table was created by Power Query to divide genre into rows.
 
 <h2>Visualisation</h2>
 
