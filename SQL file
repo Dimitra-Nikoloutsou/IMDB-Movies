@@ -1,0 +1,104 @@
+select *
+from imdb
+
+--Gross per genre across years
+select 
+genre.genre, 
+sum(gross) as total, 
+Released_Year
+from imdb
+left join genres on
+imdb.Series_Title = genres.Series_Title
+group by genre.genre, Released_Year
+order by Released_Year
+
+--Noofmovies per genre across years
+select 
+genre.genre, 
+count(series_title) as num_movies, 
+Released_Year
+from imdb
+left join genres on
+imdb.Series_Title = genres.Series_Title
+group by genre.genre, Released_Year
+order by Released_Year
+
+
+--Director qith highest gross
+select 
+director,
+sum(gross) as total_gross
+from imdb
+group by director
+order by total_gross desc
+
+--NoofVotes-Movies
+select 
+imdb.Series_Title, 
+No_of_votes, 
+Meta_score, 
+IMDB_Rating, 
+genres.genre
+from imdb
+left join genres on
+imdb.Series_Title = genres.Series_Title
+order by No_of_Votes desc
+
+--Noofimdb-Movies-gross
+select 
+imdb.Series_Title, 
+No_of_votes, 
+Meta_score, 
+IMDB_Rating, 
+genres.genre, 
+gross
+from imdb
+left join genres on
+imdb.Series_Title = genres.Series_Title
+order by IMDB_Rating desc
+
+select 
+Series_Title, 
+No_of_votes, 
+IMDB_Rating, 
+gross
+from imdb
+order by No_of_Votes desc
+
+select 
+Series_Title, 
+No_of_votes, 
+IMDB_Rating, 
+Gross
+from imdb
+order by Gross desc
+
+
+--10 star1 with the higher income
+with cte as (
+select 
+distinct Star1, 
+sum(gross) as total_gross, 
+row_number() over(order by sum(gross) desc) as rn
+from imdb
+group by Star1
+)
+select Star1, total_gross
+from cte 
+where rn<=10
+
+--10 most frequent star1
+with cte as (
+select 
+distinct Star1, 
+count(*) as total_appearences, 
+row_number() over(order by count(*) desc) as rn
+from imdb
+group by Star1
+)
+select distinct Star1, total_appearences
+from cte
+where rn <=10
+
+
+
