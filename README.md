@@ -43,7 +43,7 @@ Steven Spielberg is the director who generated the highest gross in total for al
 
 The movie with highest IMDB Rating and number of votes is "The Shawshank Redemption".
 
-Nevertheless the gros is low and there is no trend between imdb rating and gross.
+Nevertheless the gross is low and there is no trend between imdb rating and gross.
 
 Tom Hanks and Robert de Niro are the actors that have starred most in the list of movies.
 
